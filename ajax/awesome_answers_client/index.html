@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Awesome Answers Client</title>
+  <link href="style.css" rel="stylesheet" />
+  <script src="style.css"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="mustache.js"></script>
+  <script src="main.js"></script>
+
+</head>
+<body>
+
+  <script id="question-listing" type="x-tmpl-mustache">
+  <a href='javascript:void(0);'data-id="{{id}}">{{title}}</a>
+  <hr />
+  </script>
+
+  <script id="question-details" type="x-tmpl-mustache">
+  <a id="back" href="javascript:void(0);"> &lt; Back </a>
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+  <p>Created At: {{ created_at }}</p>
+  <a id='show-answers' data-qid={{id}} href="javascript:void(0);"> Show Answers </a>
+  <hr>
+  <div id="answers-container"></div>
+  </script>
+
+  <script id="answer" type="x-tmpl-mustache">
+  <p>{{ body }}</p>
+  <p>Created At: {{ created_at }}</p>
+  <hr />
+  </script>
+
+  <div id="questions">Loading...</div>
+  <div id="question-details-container"></div>
+
+</body>
+</html>

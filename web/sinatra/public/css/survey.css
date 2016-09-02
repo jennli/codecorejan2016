@@ -1,0 +1,19 @@
+h1{
+  margin-left:50px;
+
+}
+.survey-paragraph{
+  float:left;
+  font-family: cursive;
+  background-color: beige;
+  width:65%;
+  padding: 10px;
+  margin-left:10px;
+}
+
+img{
+  length:30%;
+  width:30%;
+
+  float:left;
+}

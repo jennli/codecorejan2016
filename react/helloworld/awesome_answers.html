@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React.js Forms</title>
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+  var AwesomeAnswers = React.createClass({
+    getInitialState: function(){
+      return { questions: []};
+    },
+
+    componentDidMount: function(){
+      $.ajax({
+        url: "http://localhost:3000/questions.json",
+        method: "GET",
+        error: function(){
+          alert("failed to load! People retry.");
+        },
+        success: function(data){
+          this.setState({questions: data.questions});
+        }.bind(this)
+      });
+    },
+
+    questionsDisplay: function(){
+      if(this.state.questions.length > 0){
+        // return "Question Loaded";
+        return this.state.questions.map(function(question, index){
+          return <Question title={question.title} key={index} />;
+        });
+      }
+      else{
+        return "Loading...";
+      }
+    },
+
+    render: function(){
+      return <div>
+      <h1>Welcome to AwesomeAnswers</h1>
+      {this.questionsDisplay()}
+      </div>;
+    }
+  });
+  var Question = React.createClass({
+    render: function(){
+      return <div>
+      <h2>{this.props.title}</h2>
+      <hr />
+      </div>;
+    }
+  });
+
+  ReactDOM.render(<AwesomeAnswers />, document.getElementById("container"));
+  </script>
+</body>
+</html>

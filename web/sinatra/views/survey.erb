@@ -1,0 +1,42 @@
+<h1>The Three Question Personality Test</h1>
+<style>
+
+body{
+  background-image: url("images/background-image.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+</style>
+
+<form action="/survey" method="post">
+  <label for="name">Name: </label>
+  <input id="name" type="text" label="name" name="name" placeholder="eg.jennifer li"><br />
+  <label for="email">Email:</label>
+  <input id="email" type="text" label="email" name="email" placeholder="123@gmail"><br />
+
+  <div class="options">
+
+
+    <ol>
+      <li>You work best:</li>
+      <input type="radio" name="question-one" value="deadline"> With deadlines<br />
+      <input type="radio" name="question-one" value="no-deadline"> Without deadlines </br>
+
+
+      <li>You Consider yourself more: </li>
+      <input type="radio" name="question-two" value="rational"> Rational<br />
+      <input type="radio" name="question-two" value="compassionate"> Compassionate </br>
+
+
+      <li>You are more interested in: </li>
+      <input type="radio" name="question-three" value="ideas"> Ideas<br />
+      <input type="radio" name="question-three" value="facts"> Facts </br>
+    </ol>
+
+    <div class="button">
+      <input type="submit" value="Submit">
+    </div>
+
+  </div>
+</form>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React.js Cross Tasks</title>
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  <style>
+  .crossedCheckBox {
+    text-decoration: line-through;
+  }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+  var Task = React.createClass({
+    getInitialState: function() {
+      return {crossed: false};
+    },
+    crossOut: function() {
+      this.setState({crossed: !this.state.crossed});
+    },
+    render: function(){
+      var divClass = this.state.crossed ? "crossedCheckBox" : ""
+      return <div className={divClass}>
+      <input type="checkbox" ref="completed" onChange={this.crossOut} />
+      {this.props.title}
+      </div>
+    }
+  });
+
+  var TaskList = React.createClass({
+    taskElements: function() {
+      return this.props.tasks.map(function(taskTitle, index){
+        return <Task title={taskTitle} key={index} />;
+      });
+    },
+    render: function() {
+      return <div>
+      {this.taskElements()}
+      </div>
+    }
+  });
+
+  ReactDOM.render(<TaskList tasks={['task 1', 'task 2', 'task 3']} />, document.getElementById('container'));
+  </script>
+</body>
+</html>

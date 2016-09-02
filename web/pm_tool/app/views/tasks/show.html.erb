@@ -1,0 +1,27 @@
+<div class="container">
+  <div class=top-content>
+    <h3 class="task-title">TASK: [<%= @task.title %>]</h3>
+    <p>For Project: <%= link_to @project.title.capitalize, project_path(@project) %></p>
+    <p>STATUS: <%=@task.done ? Task::DONE : Task::UNDONE%></p>
+    <div>
+      <%= link_to "Add new discussion...", new_task_discussion_path(@task) %>
+    </div>
+  </div>
+
+
+  <div class="bottom-content">
+    <h3>Discussions</h3>
+    <ul>
+      <% @discussions.each do |d|  %>
+      <li><%= link_to d.title , task_discussion_path(@task, d) %><br />
+        <em>
+          <% if d.is_replied? %>
+          last replied at: <%= d.last_replied_time.strftime("%d-%b-%Y") %>
+          <% else %>
+          created at: <%= d.created_at.strftime("%d-%b-%Y") %>
+          <% end %>
+        </em></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+#rocket{
+  
+  transition: opacity 0.5s, width 0.5s,left 0.5s ;
+}
+#rocket.click{
+  opacity: 0;
+}
+
+#rocket.btn-1{
+  width: 100px;
+}
+
+#rocket.btn-2{
+  left: 100px;
+}

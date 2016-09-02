@@ -1,0 +1,38 @@
+<!-- 1.  Create a JavaScript function that will return the default display property for a given HTML element.
+2.  Use getDocumentById in your JavaScript function and an id attribute value in your HTML to get a handle to the element.
+3.  Print the following in the body of the webpage:
+
+The TITLE element has the display property of NONE by default.
+
+4.  Move the id attribute to a different HTML element to see the various default display values. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title >Haha</title>
+  <style>
+
+  #title{
+    display:none;
+  }
+
+  </style>
+</head>
+<body>
+  <p id="container1"></p>
+  <button type="button" onclick="myFunction()">Return the display type of container2</button>
+
+  <script>
+  function myFunction(){
+    document.getElementById("container3").innerHTML = document.getElementById('title').style.display;
+    console.log(document.getElementById('title').style.display);
+  }
+  </script>
+
+  <span id="title">ss</span>
+
+  <p id="container3"></p>
+  <div id="container4"></div>
+</body>
+</html>

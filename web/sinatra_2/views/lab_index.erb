@@ -1,0 +1,48 @@
+<style>
+body{
+  background-image: url("images/lab_background.png");
+  background-position: 0px 150px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+h1{
+  background-color: orange;
+  color:white;
+  font-style: italic;
+}
+
+ul{
+
+  font-family:sans-serif;
+  padding:20px 20px 20px 50px;
+}
+
+li{
+  padding:5px;
+}
+
+</style>
+<% if !(session[:name] || session[:greeting]) %>
+<h1>Welcome to my sinatra lab main page</h1>
+  <a href="/selectlanguage">Login</a>
+<% else %>
+<h1 class="greeting"> <%= "#{session[:greeting]} #{session[:name]}"%> </h1>
+<ul>
+  <li>
+    <a href="/selectlanguage" >User Account</a>
+  </li>
+  <li>
+    <a href="/billsplitter" >Bill Splitter</a>
+  </li>
+  <li>
+    <a href="/entertask" >Enter a Task</a>
+  </li>
+  <li>
+    <a href="/listmytasks">List All Tasks</a>
+  </li>
+  <li>
+    <a href="/listmynotes">My Notes</a>
+  </li>
+</ul>
+<% end %>

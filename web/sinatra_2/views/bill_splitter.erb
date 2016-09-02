@@ -1,0 +1,40 @@
+<style>
+body{
+  background-image: url("images/bill.jpg");
+  background-repeat: no-repeat;
+  background-position: 80% -30%;
+}
+</style>
+<h1>Welcome to my awesome bill splitter!</h1>
+
+<form method="post" action="/billsplitter">
+
+  <div>
+    <label for="amount" >Total bill amount in $</label>
+    <input type="text" name="amount" id="amount" placeholder="e.g 50" required />
+  </div>
+
+  <div>
+    <label for="tax" >Tax in %</label>
+    <input type="text" name="tax" id="tax" placeholder="e.g 5%" required />
+  </div>
+
+  <div>
+    <label for="ppl" >Number of people in your party</label>
+    <input type="text" name="ppl" id="ppl" placeholder="e.g 3" required />
+
+    <div>
+      <label for="tip" >Tip in % </label>
+      <input type="text" name="tip" id="tip" placeholder="e.g 10%" required />
+    </div>
+
+  </div>
+  <div>
+    <input type="submit" value="split bill!" />
+  </div>
+
+</form>
+
+<% if @share %>
+<div class="result">$<%= @share %></div>
+<% end %>

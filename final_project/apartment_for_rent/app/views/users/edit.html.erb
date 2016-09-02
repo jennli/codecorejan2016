@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Edit User</h2>
+  <div class="well">
+    <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name%>
+    <%= f.input :last_name %>
+    <%= f.input :email%>
+    <%= f.submit %>
+    <%= button_to "Cancel", user_path(@user) %>
+    <% end %>
+  </div>
+
+</div>

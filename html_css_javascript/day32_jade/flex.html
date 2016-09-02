@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flex Demo</title>
+
+  <style>
+  .parent {
+    display: flex;
+    flex-direction: row;
+    /*flex-wrap: wrap;*/
+    /*justify-content:center;*/
+    /*justify-content:flex-end;*/
+    /*align-items: flex-start;*/
+    /*align-items: baseline;*/
+    align-items: flex-end;
+    border: 5px solid blue;
+    height: 300px;
+
+  }
+
+  .child {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    line-height: 100px;
+  }
+  .large{
+    font-size: 75px;
+    order:-1;
+  }
+  .child:nth-child(2){
+    order:-1;
+    background-color: lightgreen;
+    align-self: flex-start;
+  }
+  </style>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="parent">
+    <div class="child">1
+    </div>
+    <div class="child">2
+    </div>
+    <div class="child large">3
+    </div>
+    <div class="child">4
+    </div>
+    <div class="child">5
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<style>
+h2{
+  background-color: orange;
+  color:white;
+  font-size: 40px;
+}
+</style>
+
+<h2> Welcome to my awesome application! </h2>
+<%name = "Jennifer Li"%>
+<h3>Hello <%=name%></h3>
+
+<ul>
+  <% a = ["/calculate", "/car", "/survey ", "/fizzbuzz"] %>
+  <% a.each do |x|%>
+  <li><%= x %></li>
+  <% end %>
+</ul>

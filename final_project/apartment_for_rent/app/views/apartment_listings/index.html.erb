@@ -1,0 +1,35 @@
+<!-- Header -->
+<%= render "/welcome/header" %>
+
+<!-- Listings -->
+<section id="listings" class="listings">
+    <h1 class="text-center">Suggested Listings</h1>
+    <hr>
+    <div class="row">
+      <% @apartment_listings.each do |a| %>
+      <div class="col-md-4 col-sm-6 col-xs-12 listing-preview text-center" >
+        <%= render "/apartment_listings/preview", a_l: a %>
+      </div>
+      <% end %>
+    </div>
+    <!-- /.row (nested) -->
+    <%#= link_to "View More Items", "#", class: "btn btn-dark" %>
+  <!-- /.col-lg-10 -->
+  <!-- /.container -->
+</section>
+
+<!-- Call to Action -->
+<aside class="call-to-action bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h3>The buttons below are impossible to resist.</h3>
+        <a href="#" class="btn btn-lg btn-light">Click Me!</a>
+        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Footer -->
+<%= render "welcome/footer" %>

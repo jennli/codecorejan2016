@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h2 class="text-center listing-title"><%= @apartment_listing.title %>
+    <% if can? :manage, @apartment_listing %>
+    <span class="edit-links">
+      <%= link_to "Edit", edit_apartment_listing_path(@apartment_listing)  %>
+      <%= link_to "Delete", apartment_listing_path(@apartment_listing), method: :delete  %>
+    </span>
+    <% end %>
+  </h2>
+  <div class="listing-photo">
+    <%=image_tag @apartment_listing.pic_1.url(:medium) %>
+  </div>
+  <div class="listing-description">
+    <%= render "reservations/form" %>
+  </div>
+  <%= render "description" %>
+
+  <hr />
+  <% if @apartment_listing.longitude && @apartment_listing.latitude %>
+  <%= render "map" %>
+  <% end %>
+</div>

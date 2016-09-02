@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap Demo</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+  <script src="js/bootstrap.js"></script>
+
+  <script src="http://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+  async defer></script> -->
+  <script>
+  initMap = function() {
+    var myLocation =  new google.maps.LatLng(49.282270, -123.108509);
+
+    var mapProp = {
+      center:         myLocation,
+      zoom:           17,
+      scrollwheel:    false,
+      draggable:      false,
+      mapTypeId:      google.maps.MapTypeId.ROADMAP
+    };
+
+    var mapDiv =      document.getElementById('map');
+    var map =         new google.maps.Map(mapDiv, mapProp);
+
+    var marker =      new google.maps.Marker({
+      position:       myLocation,
+      icon:           "https://maps.google.com/mapfiles/kml/shapes/schools_maps.png",
+      animation:      google.maps.Animation.BOUNCE
+    });
+
+    marker.setMap(map);
+
+    var info = new google.maps.InfoWindow({content: "CodeCore"});
+    info.open(map, marker);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initMap);
+
+  </script>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <!-- navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <a class="navbar-left" href="#"><img src="images/logo.png" /></a>
+      <a class="navbar-brand navbar-left" href="#">Tufte Design Studios</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- jumbotron -->
+  <div class="jumbotron text-center">
+    <h1>Tufte Design Studios</h1>
+    <p>Making Data Beautiful</p>
+
+    <form>
+      <label for="newsletter">Subscribe to our newsletter:</label>
+
+      <input id="newsletter" name="newslettter" type="email" placeholder="Email Address" required />
+      <input type="submit" value="Subscribe" />
+    </form>
+  </div>
+  <!-- end of jumbotron -->
+
+  <!-- services -->
+  <div id="services" class="container text-center">
+    <h2>Services</h2>
+    <p>What We Offer</p>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:yellow">
+        <span class="glyphicon glyphicon-off"></span>
+        <h4>Infographics</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:red">
+        <span class="glyphicon glyphicon-search"></span>
+        <h4>Logo Design</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:grey">
+        <span class="glyphicon glyphicon-ok"></span>
+        <h4>Print Design</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:blue">
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <h4>Web Design</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:beige">
+        <span class="glyphicon glyphicon-th"></span>
+        <h4>Web Development</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12" style="background-color:green">
+        <span class="glyphicon glyphicon-oil"></span>
+        <h4>Web Marketing</h4>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+  <!-- end of services -->
+
+  <!-- portfolio -->
+  <div id="portfolio" class="container text-center bg-grey">
+    <h2>Portfolio</h2>
+    <p>Explore Our Projects</p>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/0.png" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/1.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/2.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/3.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/4.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/5.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/6.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/7.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/8.jpeg" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/9.png" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/10.png" class="img-circle"/>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <img src="images/11.jpeg" class="img-circle"/>
+    </div>
+  </div>
+  <!--end of portfolio -->
+
+  <!-- panels -->
+  <div id="pricing" class="container text-center">
+    <h2>Pricing</h2>
+    <p>Choose a design package that works for you.</p>
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-heading text-center">
+          <div class="panel-heading">  <h3>Packages A</h3> </div>
+          <div class="panel-body">  <p></p></div>
+          <div class="panel-footer">  <h3>$1000</h3></div>
+          <button>Purchase</button>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-heading text-center">
+          <div class="panel-heading">  <h3>Packages B</h3> </div>
+          <div class="panel-body">  <p></p></div>
+          <div class="panel-footer">  <h3>$2000</h3></div>
+          <button>Purchase</button>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-heading text-center">
+          <div class="panel-heading">  <h3>Packages C</h3> </div>
+          <div class="panel-body">  <p></p></div>
+          <div class="panel-footer">  <h3>$3000</h3></div>
+          <button>Purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of panels -->
+
+  <!-- contacts -->
+  <div id="contact" class="container">
+    <h2>Contacts</h2>
+    <div class="row">
+      <div class="col-sm-5">
+        <p>Contact us and start your dta beautification journey.</p>
+        <p>Vancouver, BC</p>
+        <p>604-555-5555</p>
+        <p>info@gmail.com</p>
+      </div>
+      <div class="col-sm-7">
+
+        <div class="form-group">
+          <form>
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required />
+            <input class="form-control" id="email" name="email" placeholder="Email" type="text" required />
+            <textarea class="form-control" id="comment" name="comment" placeholder="Comment" row="5"></textarea>
+            <input class="btn btn-primary form-control" type="submit" value="send" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of contacts -->
+  <!-- <iframe src=""></iframe> -->
+  <div id="map"></div>
+
+  <footer class="container text-center">
+    <a href="http://facebook.com"><i class="fa fa-facebook"></i></a>
+    <a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
+    <a href="http://linkedin.com"><i class="fa fa-linkedin"></i></a>
+    <a href="http://plus.google.com"><i class="fa fa-google"></i></a>
+    <p>&copy; 2016, Create by Cohort 11</p>
+  </footer>
+
+</body>
+</html>

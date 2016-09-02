@@ -1,0 +1,67 @@
+<style>
+body{
+  background-image: url("images/Calculator-icon.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.result{
+  width: 30%;
+padding-left: 40px;
+font-size: 50px;
+color:brown;
+font-style: italic;
+}
+.dropdown{
+  float:left;
+  color: purple;
+
+}
+.number{
+  float:left;
+  font-size:20px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size:20px;
+  margin: 0px 5px;
+}
+
+.button{
+  background-color: red;
+  font-size:20px;
+
+}
+</style>
+
+<h2 > Claculator </h2>
+
+<div class="container">
+  <form class="calculator" action="/calculate" method="post">
+
+    <div>
+      <input type="text" id="num1" name="num1" class="number" placeholder="number1" required>
+    </div>
+
+    <div class="dropdown">
+      <select name="operation">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">x</option>
+        <option value="divide">/</option>
+      </select>
+    </div>
+
+    <div>
+      <input type="text" class="number" name="num2" id="num2" placeholder="number2" required>
+    </div>
+
+    <input class="button" type="submit" value="GO!"  />
+  </form>
+
+<% if @result %>
+<p class="result"><%= "Result is #{@result}" %></p>
+<% end %>

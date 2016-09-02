@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+  <div id="container-1"></div>
+  <div id="count"></div>
+
+  <script type="text/babel">
+  var Item = React.createClass({
+    getInitialState: function(){
+      return {color: "white", clicked: false}
+    },
+
+    handleClick: function(){
+      if(this.state.clicked){
+        this.props.calculateTotal(this.props.item.price)
+      }
+      this.props.notifyCart();
+      this.props.addToCart(this.props.item);
+    },
+
+    that: this,
+
+    render: function(){
+      var styles = {backgroundColor: that.state.color, border: "1px solid black", width: "200px"};
+      return <div style={styles} onClick={this.handleClick}></div>;
+    }
+  });
+
+  var List = React.createClass({
+    that: this,
+    getInitialState: function(){
+      return{total: 0, listItems: []};
+    },
+
+    addToCart: function(item){
+      this.setState({listItems: this.state.listItems.concat(item.title)});
+    },
+
+    incrementTotal: function(){
+      this.setState({total: this.state.total + this.props.item.price, color: "green"}) //?
+    },
+
+    total: function(){
+      return this.props.items.map(function(item, index){
+        return <Item title={item.title} price={item.price} key={index} notifyCart={this.incrementTotal} addToCart={this.addToCart} />;
+      }.bind(this));
+    },
+
+    render: function(){
+      return <div style={this.props.style}>
+      {this.total()}
+      <br/>
+      Total: ${this.state.total}
+      <br />
+      Items: ${this.state.listItems.join(' ')}
+      </div>
+    }
+
+    var style1 = {height: "50px", width: "200px", border: "1px solid black"};
+
+    ReactDOM.render(<Item style={style1} items={[{title:"Book", price:20 }, {title: "Computer", price:200}, {title:"Phone", price:100}, {title:"Table", price:20}, {title:"Pen", price: 1}]} />, document.getElementById('container-1'));
+
+
+  });
+
+  </script>
+</body>
+</html>

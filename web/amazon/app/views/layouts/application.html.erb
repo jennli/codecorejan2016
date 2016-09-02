@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amazon</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    'font-awesome', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "HOME", root_path, class: "navbar-left" %></li>
+      <li><%= link_to "Add New Product", new_product_path, class: "navbar-left" %></li>
+      <% if user_signed_in? %>
+      <li><%= current_user.first_name %></li>
+      <li><%= link_to "Log out", sessions_path, method: :delete, class: "navbar-left" %></li>
+      <% else %>
+      <li><%= link_to "Sign in", new_session_path, class: "navbar-left" %></li>
+      <li><%= link_to "New User", new_user_path, class: "navbar-left" %></li>
+      <% end %>
+    </ul>
+    </div>
+  </nav>
+  <div>
+    <% if notice %>
+    <p class="alert alert-success alert-dismissible"><%= notice%></p>
+    <% elsif alert %>
+    <p class="alert alert-danger alert-dismissible"><%= alert%></p>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+</body>
+</html>

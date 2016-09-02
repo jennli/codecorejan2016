@@ -1,0 +1,12 @@
+<div>
+  <h3>Reserve this room</h3>
+  <%= simple_form_for [@apartment_listing, @reservation] do |f| %>
+  <%= f.input :checkin_date %>
+  <%= f.input :checkout_date %>
+  <%= f.input :rate_type, collection: ["#{@apartment_listing.daily_price}/day", "#{@apartment_listing.monthly_price}/monthly"] %>
+
+  <h1 id="reservation-price">Price:</h1>
+
+  <%= f.submit "Reserve!"%>
+  <% end %>
+</div>

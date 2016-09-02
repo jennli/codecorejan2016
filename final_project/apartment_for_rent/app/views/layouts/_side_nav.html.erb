@@ -1,0 +1,17 @@
+<ul class="sidebar-nav">
+  <%=link_to fa_icon("times"), nil, id: "menu-close", class:"btn btn-light btn-lg pull-right toggle" %>
+  <li class="sidebar-brand">
+    <%= link_to fa_icon("home"), root_path, class:"large-i" %>
+  </li>
+  <li></li>
+  <li></li>
+  <% if user_signed_in? %>
+  <li><%= link_to fa_icon("user"), user_path(current_user), class:"large-i"%></li>
+  <!-- <li><%= link_to "Hello #{current_user.first_name}", user_path(current_user)%></li> -->
+  <li><%= link_to "Add Listing..", new_apartment_listing_path%></li>
+  <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+  <% else %>
+  <li><%= link_to "New User?", new_user_path %></li>
+  <li><%= link_to "Log In", new_session_path %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,26 @@
+<style>
+body{
+  background-image: url("images/fizzbuzz_wallpaper.jpg");
+  color:rgba(133, 252, 120, 0.47)
+}
+ul {
+
+  color:beige;
+  width: 200px;
+  opacity: 0.5;
+}
+li {
+  width: 55px;
+  height: 55px;
+  margin-top: 30px;
+  margin-right: 10px;
+  display: inline;
+}
+</style>
+
+<h1>Fizzbuzz</h1>
+<ul>
+  <% @result.each do |x| %>
+  <li><%=x  %></li>
+  <% end %>
+</ul>

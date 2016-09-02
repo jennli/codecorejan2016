@@ -1,0 +1,6 @@
+<% @campaigns.each do |c| %>
+<div class="well">
+  <%= link_to c.name, c %>
+  <p><%= c.description.truncate(100) %></p>
+</div>
+  <% end %>

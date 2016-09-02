@@ -1,0 +1,28 @@
+<style>
+
+ol{
+font-size: 30px;
+color:navy;
+font-family: cursive;
+}
+
+</style>
+
+<h1>To do list for <%= session[:name] %></h1>
+<div>
+  <a href="/">Return to home page</a>
+</div>
+<hr>
+<% if !session[:tasks][session[:name]]%>
+<p>You do not have any task yet!</p>
+<%  else%>
+<ol>
+  <% session[:tasks][session[:name]].each do |x| %>
+  <li><%= x %></li>
+  <% end %>
+</ol>
+<%  end%>
+
+<div>
+  <a href="/entertask">Enter a new task</a>
+</div>

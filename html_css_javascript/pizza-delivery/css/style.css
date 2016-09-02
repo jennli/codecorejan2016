@@ -1,0 +1,4 @@
+#customer-info {
+  background: url("../image/image.png");
+   filter:alpha(opacity=50);opacity:0.75;
+}

@@ -1,0 +1,11 @@
+$primary-color:     #333;
+$secondary-color:   #FFF;
+$preferred-width:   100%;
+$font-stack:        Helvetica, sans-serif;
+$preferred-grid-width: 100%;
+
+body {
+  font: 25px $font-stack;
+  width: $preferred-width;
+  background-color: $secondary-color;
+}

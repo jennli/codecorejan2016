@@ -1,0 +1,28 @@
+<h1>Name: <%= @product.name %></h1>
+<p>Description: <%= @product.description %></p>
+<p>Price:<%= number_to_currency @product.price %></p>
+
+<p>Department: <% @product.departments.each do |d| %>
+<%= d.name %>
+<% end %>
+</p>
+<p>Created at:<%= @product.created_at %></p>
+
+<%#= button_to "edit", @product, :method => :update}%>
+<%#= button_to "delete", @product, :method => :delete, data: {confirm: "Are you sure?"}%>
+
+<%# or %>
+<%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure?"}%>
+
+<%= link_to "Edit", edit_product_path(@product) %>
+
+<div id="review-form">
+    <%= render "reviews/form" %>
+</div>
+
+<div class="reviews">
+
+<% @product.reviews.each do |rev| %>
+<%= render "/reviews/review", review: rev %>
+<% end %>
+</div>

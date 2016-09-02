@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PmTool</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div>
+    <%#= link_to "HOME", root_path %>
+    <%= link_to "PROJECTS", projects_path %> |
+    <%= link_to "NEW PROJECT", new_project_path %> |
+
+    <% if user_signed_in? %>
+    <%= link_to "SIGN OUT", sessions_path, method: :delete %> |
+    Hello <%= current_user.first_name %>
+    <% else %>
+    <%= link_to "LOG ON", new_session_path %> |
+    <%= link_to "NEW USER", new_user_path %>
+    <% end %>
+  </div>
+
+  <img class="banner" src="https://www.tcd.ie/civileng/content/pictures/project%20management.png" />
+
+  <%= notice || alert %>
+  <%= yield %>
+</body>
+</html>

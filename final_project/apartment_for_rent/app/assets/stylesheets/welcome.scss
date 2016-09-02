@@ -1,0 +1,48 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#destination, #checkin-date, #checkout-date{
+  width:20%;
+  margin:10px;
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  box-shadow: 0 0 5px 1px #969696;
+
+}
+
+.destination input[type="text"] {
+  width:50%;
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  box-shadow: 0 0 5px 1px #969696;
+
+}
+// .destination input[type="text"]:focus,
+// .destination input[type="text"].focus {
+//   // border: solid 1px #707070;
+//   box-shadow: 0 0 5px 1px #969696;
+// }
+
+.welcome-search-bar{
+  margin-top: 5%;
+  opacity: 0.9;
+}
+
+.text-vertical-center {
+  text-align: center;
+  margin-top:8%;
+}
+
+.text-vertical-center h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+.search-error{
+  border: solid 2px red !important;
+}

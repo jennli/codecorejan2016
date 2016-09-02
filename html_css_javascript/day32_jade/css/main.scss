@@ -1,0 +1,61 @@
+@import 'partial';
+nav{
+  width: $preferred-width;
+}
+
+#jumbotron img{
+  margin-left: 40%;
+}
+
+.grid img{
+  width: $preferred-grid-width / 4;
+  float:left;
+}
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box {
+  @include border-radius(999px);
+  background-color: MistyRose;
+  height: 100px;
+  width: 100px;
+}
+
+nav {
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        color: $primary-color;
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+      }
+    }
+  }
+}

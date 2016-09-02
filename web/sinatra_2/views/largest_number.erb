@@ -1,0 +1,9 @@
+<form action="/largestnumber" method="post">
+  <label for="numbers" > please give me some numbers separated by comma</label>
+  <input type="text" name="numbers" id="numbers" />
+  <input type="submit" value="get the largest number" />
+</form>
+
+<% if @max_num %>
+<div class ="result"> <%= @max_num %> </div>
+<% end %>

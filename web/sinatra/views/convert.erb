@@ -1,0 +1,33 @@
+<style>
+
+#input-text{
+  font-size:25px;
+  background-color: beige;
+  
+}
+#degree-f{
+  height:25px;
+  background-color:orange;
+  text-align: center;
+  display:block;
+  float:left;
+}
+
+</style>
+
+<h1>Convert from C to F</h1>
+<form action="/convert" method="POST">
+  <%#
+  to send data from a form to the server we must provide the 'name' attribute.
+  In Sinatra this wil be part of the params object. If the user enters 100 in the textbox below,
+  our params will look like : {"temp_in_c" => "100"} %>
+
+  <input type="text" name="temp_in_c" placeholder = "&deg;C" id="input-text"/>
+  <input type="submit" value="convert" />
+</form>
+
+<div name= "temp_in_f" id="degree-f">
+  <% if @result %>
+  <%= @result %> &deg;F
+  <% end %>
+</div>

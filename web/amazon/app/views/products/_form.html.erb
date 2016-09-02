@@ -1,0 +1,37 @@
+<ul>
+  <% @product.errors.full_messages.each do |m|  %>
+  <li><%= m %></li>
+  <% end %>
+</ul>
+
+<%# form will use patch request if @product is persisted by adding hidden field
+with name _method and value 'patch'.
+Action URL = question_atph(@question) by convention
+The form will prepopulate the fields with @question values %>
+<%= form_for @product do |f| %>
+<%# f is form object %>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+</div>
+
+<div>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
+
+<div>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+</div>
+
+<div>
+  <%= f.collection_check_boxes(:department_ids, Department.order("name"), :id, :name) %>
+</div>
+
+<div>
+  <%= f.submit %>
+</div>
+
+<% end %>

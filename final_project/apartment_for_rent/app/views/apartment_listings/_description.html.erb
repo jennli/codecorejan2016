@@ -1,0 +1,9 @@
+<p><%= @apartment_listing.description %></p>
+<% if @apartment_listing.daily_price %>
+<p>Daily Rate: $<%= @apartment_listing.daily_price %></p>
+<% end %>
+
+<% if @apartment_listing.monthly_price %>
+<p>Monthly Rate: $<%= @apartment_listing.monthly_price %></p>
+<% end %>
+<p>City: <%= @apartment_listing.city %></p>

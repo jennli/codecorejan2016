@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="top-content">
+    <div>
+      <h2>Discussion: <%= @discussion.title %></h2>
+      <p><%= @discussion.description %></p>
+    </div>
+    <div>
+      <p>Task: <%=link_to @task.title, project_task_path(@project, @task) %></p>
+    </div>
+    <%= link_to "Join this discussion", "#comment-field" %>
+  </div>
+
+  <div class="bottom-content">
+    <div>
+       <p>This dscussion has <%=@comments.size%> comments</p>
+    </div>
+    <%= form_for [@discussion, Comment.new] do |f| %>
+    <div>
+      <%= f.text_area :body, id: "comment-field"%>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
+</div>

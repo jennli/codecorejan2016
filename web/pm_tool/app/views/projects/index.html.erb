@@ -1,0 +1,10 @@
+<div class="container">
+
+  <div class="top-content">
+    <h1>Projects</h1>
+    <% @projects.each do |p| %>
+    <div class="project-index-title">
+      <h4><%= link_to p.title, project_path(p) %></h4> <em>due on:<%= p.due_date.strftime("%b-%d-%Y") %></em></div> 
+      <% end %>
+    </div>
+  </div>

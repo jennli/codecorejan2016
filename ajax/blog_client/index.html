@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="mustache.js"></script>
+
+  <script src="blog.js"></script>
+</head>
+<body>
+  <script id="post-listing" type="x-tmpl-mustache">
+  <a href='javascript:void(0);'data-id="{{id}}">{{title}}</a>
+  <hr />
+  </script>
+
+  <script id="post-detail" type='x-tmpl-mustache'>
+  <a href='javascript:void(0);' id="back">&#60;back</a>
+  <h1 class="title">{{title}}</h1>
+  <p>{{body}}</p>
+  <p>{{created_at}}</p>
+  <hr />
+  <form >
+  <div class='form-group'>
+  <textarea data-pid={{id}} class="form-control" placeholder="Leave a comment here.."></textarea>
+  </div>
+  <input type=submit />
+  </form>
+  <hr />
+  <h3>Comments</h3>
+  <ul id="comments"></ul>
+  </script>
+
+  <script id="comment-detail" type='x-tmpl-mustache'>
+  <li>
+  <p>{{body}}</p>
+  <p>created at: {{created_at}}</p>
+  </li>
+  </script>
+
+  <div class="container" id="posts">Loading..</div>
+  <div class="container" id="post-container"></div>
+
+  <!-- <div id="post-container"></div> -->
+</body>
+</html>

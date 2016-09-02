@@ -1,0 +1,76 @@
+<h1><%= @campaign.name %></h1>
+<p><%= @campaign.description %></p>
+<p><%= @campaign.goal %></p>
+<p>End Date: <%= @campaign.end_date %></p>
+
+<%= @campaign.publish_button %>
+
+<%= @campaign.state_label %>
+
+<!-- <div class="label label-default">
+  <%= @campaign.aasm_state %>
+</div> -->
+
+<div>
+  <% if @campaign.image %>
+  <%= image_tag @campaign.image.url(:large) %>
+  <% end %>
+</div>
+
+<% if @campaign.longitude && @campaign.latitude %>
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+  </div>
+  <script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @campaign.latitude %>,
+        "lng": <%= @campaign.longitude %>,
+        "infowindow": "hello CodeCore!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+  </script>
+<% end %>
+
+<hr />
+<div>
+  <%= link_to "Edit", edit_campaign_path(@campaign), class: "btn btn-info" %>
+  <%= link_to "Destroy", @campaign,
+  method: :delete,
+  data: {confirm: "Are you sure?"},
+  class: "btn btn-danger"  %>
+</div>
+
+<h2>Rewards</h2>
+<% @campaign.rewards.each do |r| %>
+<div class="well col-md-3">
+  <h3><%= r.title %></h3>
+  <p><%= number_to_currency(r.amount) %></p>
+</div>
+<% end %>
+
+<hr>
+
+<h2>Pledge</h2>
+
+<%= simple_form_for [@campaign, @pledge] do |f| %>
+  <%= f.input :amount %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<h3>Comments</h3>
+<% @campaign.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %>
+
+<hr>
+
+<%= simple_form_for [@campaign, @comment] do |f| %>
+<%= f.input :body %>
+<%= f.submit class: "btn btn-primary" %>
+<% end %>

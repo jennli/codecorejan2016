@@ -1,0 +1,63 @@
+// Place all the styles related to the apartment_listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.listing-title{
+  width:100%;
+  height: 50px;
+}
+
+.listing-form{
+  width:50%;
+}
+.address-input{
+  display: inline-block;
+  width:32%;
+}
+
+.price-input{
+  display: inline-block;
+  width:40%;
+}
+
+.edit-links{
+  font-size: 18px;
+}
+.listing-photo{
+  padding:20px;
+  width:440px;
+  box-shadow: 3px 3px 3px 3px #777;
+}
+.preview-photo{
+  padding:5px;
+  // margin:5px;
+  width:240px;
+  box-shadow: 3px 3px 3px 3px #777;
+}
+.listing-photo, .reservation-form{
+  margin: 2%;
+  display:inline-block;
+  float:left;
+  // width:50%;
+}
+
+.listing-description{
+  margin: 2%;
+  display:inline-block;
+}
+
+.reservation-form{
+  text-align: center;
+}
+
+/* Map */
+.map {
+  height: 400px;
+  // float: right;
+}
+
+@media(max-width:768px) {
+  .map {
+    height: 50%;
+  }
+}

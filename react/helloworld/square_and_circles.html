@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React.js Squares and Circles</title>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container-1"></div>
+    <div id="container-2"></div>
+
+    <script type="text/babel">
+      var Circle = React.createClass({
+        handleClick: function(){
+          // alert('clicked ' + this.props.color + ' circle' );
+          this.props.notifyParent();
+          this.props.addToList(this.props.color);
+        },
+        render: function() {
+          var styles = {backgroundColor: this.props.color, borderRadius: "30px",
+                        width: "50px", height: "50px", float: "left"};
+          return <div style={styles} onClick={this.handleClick}></div>;
+        }
+      });
+      var Shape = React.createClass({
+        getInitialState: function() {
+          return { clickCount: 0, listCircles: [] };
+        },
+        addToList: function(color) {
+          this.setState({listCircles: this.state.listCircles.concat(color)});
+        },
+        incrementCount: function(){
+          this.setState({clickCount: this.state.clickCount + 1});
+        },
+        circles: function() {
+          return this.props.circleColors.map(function(color, index){
+            return <Circle color={color} key={index} notifyParent={this.incrementCount} addToList={this.addToList} />;
+          }.bind(this));
+        },
+        render: function() {
+          return <div style={this.props.style}>
+                  {this.circles()}
+                  <br />
+                  You clicked on: {this.state.clickCount} circle(s). {this.state.listCircles.join(' ')}
+                 </div>;
+        }
+      });
+      var style1 = {height: "200px", width: "200px", backgroundColor: "red"};
+      var style2 = {height: "300px", width: "300px", backgroundColor: "darkred"};
+
+      ReactDOM.render(<Shape style={style1} circleColors={['blue', 'green', 'yellow']} />, document.getElementById('container-1'));
+
+      ReactDOM.render(<Shape style={style2} circleColors={['grey', 'white','blue', 'green', 'yellow']} />, document.getElementById('container-2'));
+    </script>
+  </body>
+</html>

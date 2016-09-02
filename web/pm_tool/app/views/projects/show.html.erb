@@ -1,0 +1,32 @@
+<div class="container">
+
+<div class="top-content">
+
+  <h1>Project: <%= @project.title %></h1>
+  <div>
+    <p>Description: <%= @project.description %></p>
+    <p>Due: <%= @project.due_date.strftime("%d-%b-%Y") %></p>
+  </div>
+  <h5>
+    <%= link_to "Create new task", new_project_task_path(@project) %>
+  </h5>
+</div>
+
+<div class="bottom-content">
+  <p>Tasks for this project:</p>
+  <ol>
+    <% @tasks.each do |t| %>
+    <li class="task-list"><h5><%=link_to t.title, project_task_path(@project, t) %> | <%=link_to t.done ? Task::DONE : Task::UNDONE, project_task_done_path(@project, t), method: :post %></h5>
+      <ul>
+        <% t.discussions.each do |d| %>
+        <li>Discussion: <%=link_to d.title, task_discussion_path(t, d) %></li>
+        <% end %>
+
+      </ul>
+    </li>
+    <% end %>
+  </ol>
+</div>
+
+
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <title>Exercise</title>
+  </head>
+  <body>
+      <div id="container"></div>
+      <div id="container-1"></div>
+      <div id="container-2"></div>
+      <div id="container-3"></div>
+      <div id="container-4"></div>
+
+      <script type="text/babel">
+      var shape = React.createClass({
+        render: function(){
+          return <div style={this.props.style}>Box</div>;
+        }
+      });
+      var styles1 = {display: "inline-block", borderRadius:"10px", margin:"5px", height: "50px", width: "50px", backgroundColor: "red", float: "left"};
+      var styles2 = {display: "inline-block", borderRadius:"30px", margin:"5px", height: "50px", width: "50px", backgroundColor: "green", float: "left"};
+      var styles3 = {display: "inline-block", borderRadius:"20px", margin:"5px", height: "150px", width: "100px", backgroundColor:"blue", float: "left"};
+      var styles4 = {display: "inline-block", borderRadius:"20px", margin:"5px", height: "100px", width: "150px", backgroundColor: "maroon", float: "left"};
+      var styles5 = {display: "inline-block", borderRadius:"20px", margin:"5px", height: "150px", width: "100px", backgroundColor:"black", float: "left"};
+      ReactDOM.render(<shape style={styles1}/>, document.getElementById('container'));
+      ReactDOM.render(<shape style={styles2}/>, document.getElementById('container-1'));
+      ReactDOM.render(<shape style={styles3}/>, document.getElementById('container-2'));
+      ReactDOM.render(<shape style={styles4}/>, document.getElementById('container-3'));
+      ReactDOM.render(<shape style={styles5}/>, document.getElementById('container-4'));
+
+      </script>
+  </body>
+</html>

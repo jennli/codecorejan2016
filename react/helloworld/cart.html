@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React.js Cart</title>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+      var Product = React.createClass({
+        getInitialState: function() {
+          return {color: "White", clicked: false};
+        },
+        handleClick: function() {
+          if(this.state.clicked) {
+            this.props.calculateTotal(-this.props.price);
+            this.setState({color: "White", clicked: false});
+          } else {
+            this.props.calculateTotal(this.props.price);
+            this.setState({color: "grey", clicked: true});
+          }
+        },
+        render: function(){
+          var styles = {backgroundColor: this.state.color}
+          return <tr>
+                  <td style={styles} onClick={this.handleClick}>
+                    {this.props.name} (${this.props.price})
+                  </td>
+                 </tr>;
+        }
+      });
+
+      var ProductList = React.createClass({
+        getInitialState: function() {
+          return {total: 0};
+        },
+        calculateTotal: function(number)  {
+          this.setState({total: this.state.total + number});
+        },
+        products: function() {
+          return this.props.products.map(function(product, index){
+            return <Product name={product[0]} price={product[1]}
+                            key={index} calculateTotal={this.calculateTotal} />
+          }.bind(this));
+        },
+        render: function() {
+          var styles = {width: "200px", border: "1px solid black"};
+          return <div>
+                  <table style={styles}>
+                    <tbody>
+                      {this.products()}
+                    </tbody>
+                  </table>
+                  <div>Total: ${this.state.total}</div>
+                </div>;
+        }
+      });
+
+      ReactDOM.render(<ProductList products={[["Book", 250], ["Computer", 100], ["Pen", 1], ["Phone", 50], ["Table", 100]]} />, document.getElementById('container'));
+    </script>
+  </body>
+</html>

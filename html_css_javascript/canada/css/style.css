@@ -1,0 +1,44 @@
+.container{
+  margin:3px;
+font-family:"Comic sans MS";
+}
+
+#links{
+  /*text-align: right;*/
+  float:right;
+  height: 100%;
+}
+
+#flag{
+  float:left;
+  height: 100%;
+}
+
+.banner{
+  /*position:relative;*/
+  border-bottom: 2px solid black;
+  overflow:auto;
+  /*height:100px;*/
+}
+
+#content{
+clear:both;
+border-top: 2px solid black;
+}
+
+.table{
+border: 3px solid black;
+border-collapse: collapse;
+  width: 70%;
+
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-left:3px solid black;
+}
+th {
+background-color: rgba(20, 20, 20, 0.4)
+}
+tr:nth-child(odd){background-color: #f2f2f2}

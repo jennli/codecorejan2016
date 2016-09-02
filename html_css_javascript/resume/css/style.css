@@ -1,0 +1,20 @@
+
+h1{
+
+  padding:20px;
+  text-align:center;
+  color:red;
+  position: absolute;
+  width: 100%;
+  background-color: #851313;
+  filter:alpha(opacity=50);opacity:0.75;
+  margin:0px 0px 0px 0px;
+}
+
+img{
+  width: 100%;
+}
+
+body{
+  margin: 0px 0px 0px 0px;
+}

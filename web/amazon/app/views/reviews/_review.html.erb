@@ -1,0 +1,5 @@
+<div id="<%= dom_id(review) %>">
+  <%= review.body %> on <%= review.created_at.strftime("%b-%d-%Y") %>
+  <%= link_to "Delete", product_review_path(@product, review), method: :delete, remote: true, data: {confirm: "are you sure?"} %>
+  <hr />
+</div>

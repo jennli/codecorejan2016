@@ -1,0 +1,16 @@
+<div>
+  <%= form_for [@project, @task] do |f| %>
+  <div>
+    <%= f.label "new task" %>
+  </div>
+  <div>
+    <%= f.text_area :title %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>
+
+<div>

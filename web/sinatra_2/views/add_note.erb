@@ -1,0 +1,18 @@
+<h1>Add a new note</h1>
+
+<form action="/addnote" method="POST">
+
+  <div class="title">
+    <input type="text" name="title" id="title" placeholder="title" required/>
+  </div>
+  <div class="body">
+    <textarea name="body" value="body" placeholder="body" required></textarea>
+  </div>
+
+  <div>
+    <input type = "submit" value="Add"  />
+  </div>
+
+</form>
+
+<a href="/listmynotes">Return to Notes</a>

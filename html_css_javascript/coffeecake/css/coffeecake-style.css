@@ -1,0 +1,32 @@
+#coffecake-title-div{
+  text-align:center;
+  /*padding-left:20%;*/
+  color:#FF6C21;
+  font-family: Sans-serif;
+}
+
+body{
+
+}
+
+.container{
+  /*border: 1px;*/
+  width: 500px;
+  border:2px solid grey;
+  border-radius:10px;
+  margin:2px;
+  background-color: #E0E0E0;
+}
+
+#image-div{
+  padding: 3% 0px 3% 0px;
+  border: 1px dashed grey;
+
+}
+
+#ingredients-div{
+  margin:3% 2% 3% 2%;
+  padding:2%;
+border-radius: 5px;
+  background-color: beige;
+}

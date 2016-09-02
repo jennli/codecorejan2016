@@ -1,0 +1,28 @@
+<div class="listing-form">
+<%= simple_form_for @apartment_listing do |f| %>
+<%= f.input :title %>
+<%= f.input :pic_1 %>
+<%= f.input :description %>
+<%= f.input :address %>
+<div class="address-input">
+  <%= f.input :country, collection: CountryStateSelect.countries_collection  %>
+</div>
+
+<div class="address-input">
+  <% options = { form: f, field_names: { :country => :country, :state => :province } }%>
+  <%#= f.input :province, CountryStateSelect.state_options(options) %>
+  <%= f.input :province%>
+</div>
+<div class="address-input">
+  <%= f.input :city %>
+</div>
+
+<div class="price-input">
+  <%= f.input :daily_price %>
+</div>
+<div class="price-input">
+  <%= f.input :monthly_price %>
+</div>
+<%= f.submit class:"btn btn-primary"%>
+<% end %>
+</div>

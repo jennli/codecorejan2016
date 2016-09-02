@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsLab</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<a href="<%= questions_id_path %>">Delete</a> |
+<a href="<%= questions_id_edit_path %>">Edit</a>|
+<a href="<%= questions_id_path %>">Questions</a>|
+<a href="<%= faq_path %>">FAQ</a>|
+
+</body>
+</html>

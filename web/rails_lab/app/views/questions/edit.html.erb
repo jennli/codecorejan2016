@@ -1,0 +1,18 @@
+<%# form_tag is a built-in rails view helper that enables us to
+generate a form the first argument is the 'action' attirbute of the form.
+you can provide method: attribute to make the form do non-POST request %>
+
+<%= form_tag questions_id_comments_path, method: :post do %>
+<div>
+  <%= label_tag :title%>
+  <%= text_field_tag :title %>
+
+</div>
+
+<div>
+<%= label_tag :question %>
+<%= text_field_tag :question %>
+</div>
+<%= submit_tag "Create!" %>
+
+<%end %>

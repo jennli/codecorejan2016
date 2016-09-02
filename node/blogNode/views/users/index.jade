@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  h1 All Users
+  each user in users
+    a(href="/users/#{user._id}")= user.name
+    hr
