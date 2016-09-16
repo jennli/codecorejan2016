@@ -3,7 +3,8 @@
 <%= f.input :description %>
 <%= f.input :goal, as: :string %>
 <%= f.file_field :image  %>
-<%= f.input :end_date %>
+<%= f.input :end_date, as: :string %>
+<%= f.input :address %>
 <div id="rewards">
   <%= f.simple_fields_for :rewards do |r| %>
   <%= render "reward_fields", f: r %>
